@@ -329,7 +329,7 @@ async function review(r,status){
  if(status!=='approved'&&!confirm('স্ট্যাটাস পরিবর্তন করবেন?'))return;
  try{
   const{error}=await db.rpc('mkss_review',{p_registration_id:r.id,p_status:status});if(error)throw error;
-  report('adminStatus','✅ স্ট্যাটাস আপডেট হয়েছে। কার্ড “কার্ড খুঁজুন” থেকে সংগ্রহ করা যাবে; কোনো WhatsApp বার্তা পাঠানো হবে না।','ok');
+  report('adminStatus','✅ স্ট্যাটাস আপডেট হয়েছে। কার্ড “কার্ড খুঁজুন” থেকে সংগ্রহ করা যাবে।','ok');
   await loadDashboard();
  }catch(e){report('adminStatus','স্ট্যাটাস আপডেট হয়নি: '+e.message,'error');}
 }
